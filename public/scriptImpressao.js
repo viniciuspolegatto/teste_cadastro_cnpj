@@ -25,9 +25,12 @@ document.getElementById('botaoImpressaoCnpj').addEventListener('click', async fu
     // Preenchendo as células da tabela com os valores
     document.getElementById('cnpj-td').textContent = cnpjDigitado;
     document.getElementById('razao-social-td').textContent = dataCnpj.nome;
-    document.getElementById('razao-social-td').textContent = dataCnpj.nome;
-    document.getElementById('endereco-td').textContent = endereco;
+    document.getElementById('empresa-nome-fantasia').textContent = dataCnpj.fantasia;
+    document.getElementById('empresa-logradouro').textContent = dataCnpj.logradouro;
+    document.getElementById('empresa-municipio').textContent = dataCnpj.municipio;
+    document.getElementById('empresa-situacao').textContent = dataCnpj.situacao;
     document.getElementById('telefone-td').textContent = dataCnpj.telefone;
+    document.getElementById('endereco-td').textContent = endereco;
     document.getElementById('cep-td').textContent = cepDigitado;
 
     // Exibindo a tabela
