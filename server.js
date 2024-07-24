@@ -1,7 +1,8 @@
 const https = require('https');
 const express = require('express');
+const path = require('path');
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 app.use(express.static('public'));
 
@@ -35,6 +36,11 @@ app.get('/cnpj/:cnpj', (req, res) => {
   });
 
   apiReq.end();
+});
+
+// Rota para servir o arquivo HTML principal
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
 app.listen(PORT, () => {
