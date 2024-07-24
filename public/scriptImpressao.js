@@ -2,10 +2,14 @@ document.getElementById('botaoImpressaoCnpj').addEventListener('click', async fu
   const cepDigitado = document.getElementById('cep').value;
   const cnpjDigitado = document.getElementById('cnpj').value;
 
+  console.log('CEP Digitado:', cepDigitado);
+  console.log('CNPJ Digitado:', cnpjDigitado);
+
   try {
     // Buscar dados do CEP na API ViaCEP
     let resCep = await fetch(`https://viacep.com.br/ws/${cepDigitado}/json/`);
     let dataCep = await resCep.json();
+    console.log('Dados do CEP:', dataCep);
 
     if (dataCep.erro) {
       throw new Error("CEP não encontrado");
@@ -14,6 +18,7 @@ document.getElementById('botaoImpressaoCnpj').addEventListener('click', async fu
     // Buscar dados do CNPJ na API local
     let resCnpj = await fetch(`/cnpj/${cnpjDigitado}`);
     let dataCnpj = await resCnpj.json();
+    console.log('Dados do CNPJ:', dataCnpj);
 
     const endereco = `${dataCep.logradouro}, ${dataCep.bairro}, ${dataCep.localidade} - ${dataCep.uf}`;
 
