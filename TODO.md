@@ -15,7 +15,7 @@ favorites.push(color);
 console.log(favorites);
 ```
 
-Click __Tools__ > __Logs__ at the bottom of Glitch to see the log statement in action when you submit new colors through the form.
+Click **Tools** > **Logs** at the bottom of Glitch to see the log statement in action when you submit new colors through the form.
 
 ## Keep going! 🚀
 
