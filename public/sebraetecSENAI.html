@@ -8,7 +8,36 @@
   <script src="scriptImpressao.js" defer></script>
   <link rel="stylesheet" href="style.css" />
 </head>
-  <body>
-    <text>SEBRAETEC SENAI</text>
-  </body>
+
+<body>
+    <h1>Formatador de Texto</h1>
+  
+    <td id="empresa-logradouro"></td>
+  
+    <form>
+        <textarea id="texto" rows="10" cols="50">  </textarea>
+        <button type="button" onclick="formatarTexto()">Formatar</button>
+    </form>
+    <div id="resultado"></div>
+
+    <script>
+        function formatarTexto() {
+            var texto = document.getElementById("texto").value;
+            var resultado = document.getElementById("resultado");
+            resultado.innerHTML = texto.replace(/\n/g,   
+ '<p></p>');
+
+            // Adicionando quebra de página a cada 50 linhas (ajuste conforme necessário)
+            var linhas = texto.split('\n');
+            var contadorLinhas = 0;
+            for (var i = 0; i < linhas.length; i++) {
+                contadorLinhas++;
+                if (contadorLinhas % 50 === 0) {
+                    resultado.innerHTML += '<div class="page-break"></div>';
+                    contadorLinhas = 0;
+                }
+            }
+        }
+    </script>
+</body>
 </html>
