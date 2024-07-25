@@ -1,0 +1,7 @@
+#textoContrato {
+  font-family: Arial, sans-serif;
+  font-size: 12pt;
+  line-height: 1.5;
+  margin: 2cm;
+  page-break-before: always;
+}

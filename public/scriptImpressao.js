@@ -34,6 +34,11 @@ document.getElementById('botaoImpressaoCnpj').addEventListener('click', async fu
     document.getElementById('endereco-td').textContent = endereco;
     document.getElementById('cep-td').textContent = cepDigitado;
 
+    // Armazenar os dados na sessionStorage
+    sessionStorage.setItem('dadosCnpj', JSON.stringify(dataCnpj));
+    sessionStorage.setItem('cepDigitado', cepDigitado);
+        
+    
     // Exibindo a tabela
     document.getElementById('data-table').style.display = 'block';
   } catch (error) {
