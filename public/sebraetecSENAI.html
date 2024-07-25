@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 
@@ -11,7 +12,8 @@
     body {
       font-family: Arial, sans-serif;
       margin: 0cm; /* Margens para impressão */
-      padding-top: 100px; /* Espaço suficiente para o cabeçalho */
+      padding: 0; /* Remover padding para impressão */
+      position: relative; /* Necessário para o posicionamento do cabeçalho */
     }
 
     #textoContrato {
@@ -56,18 +58,23 @@
       }
 
       .print-header img {
-        width: 100px;
-        height: 100px;
+        width: 200px;
+        height: 200px;
       }
 
-      /* Ajustar o início do conteúdo para evitar sobreposição com o cabeçalho */
-      body {
-        padding-top: 0; /* Remover o padding superior para a impressão */
+      /* Adicionar uma área de segurança para evitar sobreposição */
+      body::before {
+        content: "";
+        display: block;
+        height: 250px; /* Espaço suficiente para o cabeçalho */
+        margin-bottom: 20px; /* Espaço adicional abaixo do cabeçalho para garantir que o conteúdo não comece imediatamente abaixo do cabeçalho */
       }
 
-      /* Adicionar uma área de segurança abaixo do cabeçalho */
+      /* Garantir que o conteúdo comece abaixo do cabeçalho */
       .content {
+        position: relative;
         margin-top: 250px; /* Espaço suficiente abaixo do cabeçalho */
+        page-break-before: always; /* Garante que o conteúdo inicie em uma nova página se necessário */
       }
 
       /* Ajuste a margem dos parágrafos para impressão */
@@ -80,11 +87,6 @@
       h2 {
         margin-bottom: 10px;
       }
-
-      /* Garantir que a imagem do cabeçalho não sobreponha o conteúdo */
-      .print-header + .content {
-        margin-top: 250px; /* Garantir que o conteúdo comece abaixo do cabeçalho */
-      }
     }
   </style>
 </head>
@@ -95,10 +97,9 @@
   </div>
 
   <div class="content">
-   
     
     <div id="textoContrato"></div>
-    <button onclick="voltarParaIndex()">Voltar para Início</button>
+    <button onclick="voltarParaIndex()">Voltar para Index</button>
   </div>
 
   <script>
@@ -107,8 +108,8 @@
     const cepDigitado = localStorage.getItem('cepDigitado');
 
     // Verificar se os dados foram recuperados com sucesso
-
-      if (dadosCnpj && cepDigitado) {
+   
+          if (dadosCnpj && cepDigitado) {
       
 
       // Formatar as informações em texto discursivo com formatação HTML
@@ -145,7 +146,8 @@ Atividade Principal: ${dadosCnpj.atividade_principal[0].text}</p>
 const divTextoContrato = document.getElementById('textoContrato');
 divTextoContrato.innerHTML = textoFormatado; // Usar innerHTML para interpretar o HTML
     
-
+    
+    
     } else {
       alert('Dados de CNPJ e/ou CEP não encontrados.');
     }
@@ -159,13 +161,6 @@ divTextoContrato.innerHTML = textoFormatado; // Usar innerHTML para interpretar 
 </body>
 
 </html>
-
-
-
-
-
-
-
 
 
 
