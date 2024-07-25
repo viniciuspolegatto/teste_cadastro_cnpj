@@ -22,15 +22,13 @@
     // Verificar se os dados foram recuperados com sucesso
     if (dadosCnpj && cepDigitado) {
       // Formatar as informações em texto discursivo
-      const textoFormatado =
-            <div`CONTRATO DE PRESTAÇÃO DE SERVIÇOS DE CONSULTORIA TECNOLÓGICA - PROGRAMA SEBRAETEC 4.0 `+<br>+
-            `      
-        - CNPJ: ${dadosCnpj.cnpj}
-        - Razão Social: ${dadosCnpj.nome}
-        - Atividade Principal: ${dadosCnpj.atividade_principal[0].text}
-        - CEP Digitado: ${cepDigitado}
-        // Adicione mais informações conforme necessário
-      `;
+    const textoFormatado = 
+      "CONTRATO DE PRESTAÇÃO DE SERVIÇOS DE CONSULTORIA TECNOLÓGICA - PROGRAMA SEBRAETEC 4.0\n\n" +
+      "- CNPJ: " + dadosCnpj.cnpj + "\n\n" +
+      "- Razão Social: " + dadosCnpj.nome + "\n" +
+      "- Atividade Principal: " + dadosCnpj.atividade_principal[0].text + "\n" +
+      "- CEP Digitado: " + cepDigitado + "\n\n" +
+      "// Adicione mais informações conforme necessário";
 
       // Exibir o texto formatado na página
       const divTextoContrato = document.getElementById('textoContrato');
