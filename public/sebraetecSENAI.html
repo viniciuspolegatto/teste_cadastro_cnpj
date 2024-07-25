@@ -6,51 +6,82 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Contrato SEBRAETEC SENAI</title>
   <link rel="stylesheet" href="style.css" />
-  
   <style>
-  /* Estilo para a página e para o texto de contrato */
-  body {
-    font-family: Arial, sans-serif;
-    margin: 0cm; /* Margens para impressão */
-  }
+    /* Estilo geral para a página */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 2cm; /* Margens para impressão */
+      padding-top: 250px; /* Espaço suficiente para o cabeçalho */
+    }
 
-  #textoContrato {
-    white-space: pre-wrap; /* Preserve quebras de linha */
-  }
+    #textoContrato {
+      white-space: pre-wrap; /* Preserve quebras de linha */
+    }
 
-  h2 {
-    text-align: center; /* Centralizar o texto do título */
-    font-weight: bold; /* Deixar o texto em negrito */
-  }
-
-  p {
-    margin: 2; /* Remove margens padrão dos parágrafos */
-    padding: 0; /* Remove padding para não adicionar espaço extra */
-  }
-
-  button {
-    margin-top: 20px;
-  }
-
-  @media print {
-    p {
-      margin: 0; /* Reduzir margem entre parágrafos na impressão */
-      padding: 0; /* Reduzir padding entre parágrafos na impressão */
+    h1 {
+      text-align: center;
     }
 
     h2 {
-      margin-bottom: 10px; /* Ajustar margem inferior para o título na impressão */
+      text-align: center; /* Centralizar o texto do título */
+      font-weight: bold; /* Deixar o texto em negrito */
     }
-  }
-</style>
-  
-  
+
+    p {
+      margin: 0; /* Remove margens padrão dos parágrafos */
+      padding: 0; /* Remove padding para não adicionar espaço extra */
+    }
+
+    button {
+      margin-top: 20px;
+    }
+
+    @media print {
+      @page {
+        size: A4;
+        margin: 1cm; /* Margens para impressão */
+      }
+
+      /* Adicionar a imagem ao cabeçalho de cada página */
+      .print-header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        text-align: center;
+        padding-bottom: 20px; /* Espaço abaixo do cabeçalho */
+        border-bottom: 1px solid #000;
+        background-color: #fff; /* Fundo branco para evitar sobreposição com o conteúdo */
+        z-index: 1000; /* Garantir que o cabeçalho fique acima do conteúdo */
+      }
+
+      .print-header img {
+        width: 200px;
+        height: 200px;
+      }
+
+      /* Ajuste a margem dos parágrafos para impressão */
+      p {
+        margin: 0;
+        padding: 0;
+      }
+
+      /* Ajustar a margem inferior para o título na impressão */
+      h2 {
+        margin-bottom: 10px;
+      }
+    }
+  </style>
 </head>
 
 <body>
+  <div class="print-header">
+    <img src="https://toppng.com/uploads/preview/sebrae-sp-vector-logo-download-free-1157404241143dsibcwuh.png" alt="Logo SEBRAETEC">
+  </div>
 
+ 
   <div id="textoContrato"></div>
-  <button onclick="voltarParaIndex()">Voltar para Inicio</button>
+  <button onclick="voltarParaIndex()">Voltar para Index</button>
 
   <script>
     // Recuperar os dados armazenados no localStorage
@@ -58,7 +89,8 @@
     const cepDigitado = localStorage.getItem('cepDigitado');
 
     // Verificar se os dados foram recuperados com sucesso
-    if (dadosCnpj && cepDigitado) {
+      if (dadosCnpj && cepDigitado) {
+      
 
       // Formatar as informações em texto discursivo com formatação HTML
       const texto1senai = `<h3 style="text-align: center; font-weight: bold;">CONTRATO DE PRESTAÇÃO DE SERVIÇOS DE CONSULTORIA TECNOLÓGICA - PROGRAMA SEBRAETEC 4.0 </h3>
@@ -73,10 +105,6 @@
       const textoFormatado = texto1senai+texto2senai+texto3senai+texto4senai+texto5senai+`
 
 
-
-
-
-
 CNPJ: ${dadosCnpj.cnpj}
 Razão Social: ${dadosCnpj.nome}
 Atividade Principal: ${dadosCnpj.atividade_principal[0].text}</p>
@@ -85,7 +113,9 @@ Atividade Principal: ${dadosCnpj.atividade_principal[0].text}</p>
 // Exibir o texto formatado na página
 const divTextoContrato = document.getElementById('textoContrato');
 divTextoContrato.innerHTML = textoFormatado; // Usar innerHTML para interpretar o HTML
-
+      
+      
+      
 
     } else {
       alert('Dados de CNPJ e/ou CEP não encontrados.');
