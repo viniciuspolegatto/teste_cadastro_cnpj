@@ -26,7 +26,7 @@
 <body>
 
   <div id="textoContrato"></div>
-  <button onclick="voltarParaIndex()">Voltar para Index</button>
+  <button onclick="voltarParaIndex()">Voltar para Inicio</button>
 
   <script>
     // Recuperar os dados armazenados no localStorage
@@ -43,13 +43,12 @@ const textoFormatado = `
 <p style="text-align: justify;">As partes abaixo qualificadas, por seus representantes legais, assinam o presente contrato de prestação de serviços de consultoria tecnológica individual, pertencentes ao Programa SEBRAETEC 4.0.</p>
 <h4 style="text-align: justify; font-weight: bold;">I - PARTES</h4>
 <h4 style="text-align: justify; font-weight: bold;">1. Contratante - EMPRESA</h4>
-<p style="text-align: justify;">
+<p style="text-align: justify;">${dadosCnpj.nome}, inscrita no CNPJ nº ${dadosCnpj.cnpj}, localizada na ${dadosCnpj.logradouro}, ${dadosCnpj.numero}, bairro ${dadosCnpj.bairro}, no município de ${dadosCnpj.municipio} - SP, CEP: ${dadosCnpj.cep}, telefone(s) ${dadosCnpj.telefone}, e-mail ${dadosCnpj.email}, empresa neste ato representada por .... Cep Pessoal digitado: ${cepDigitado}, logradouro ${cepDigitado.logradouro} </P>
 
 
-<p>CNPJ: ${dadosCnpj.cnpj}</p>
-<p>Razão Social: ${dadosCnpj.nome}</p>
-<p>Atividade Principal: ${dadosCnpj.atividade_principal[0].text}</p>
-<p>CEP Digitado: ${cepDigitado}</p>
+CNPJ: ${dadosCnpj.cnpj}
+Razão Social: ${dadosCnpj.nome}
+Atividade Principal: ${dadosCnpj.atividade_principal[0].text}</p>
 `;
 
 // Exibir o texto formatado na página
