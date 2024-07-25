@@ -6,21 +6,45 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Contrato SEBRAETEC SENAI</title>
   <link rel="stylesheet" href="style.css" />
+  
   <style>
-    /* Estilo para a página e para o texto de contrato */
-    body {
-      font-family: Arial, sans-serif;
-      margin: 1cm; /* Margens para impressão */
+  /* Estilo para a página e para o texto de contrato */
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0cm; /* Margens para impressão */
+  }
+
+  #textoContrato {
+    white-space: pre-wrap; /* Preserve quebras de linha */
+  }
+
+  h2 {
+    text-align: center; /* Centralizar o texto do título */
+    font-weight: bold; /* Deixar o texto em negrito */
+  }
+
+  p {
+    margin: 0; /* Remove margens padrão dos parágrafos */
+    padding: 0; /* Remove padding para não adicionar espaço extra */
+  }
+
+  button {
+    margin-top: 20px;
+  }
+
+  @media print {
+    p {
+      margin: 0; /* Reduzir margem entre parágrafos na impressão */
+      padding: 0; /* Reduzir padding entre parágrafos na impressão */
     }
 
-    #textoContrato {
-      white-space: pre-wrap; /* Preserve quebras de linha */
+    h2 {
+      margin-bottom: 10px; /* Ajustar margem inferior para o título na impressão */
     }
-
-    button {
-      margin-top: 20px;
-    }
-  </style>
+  }
+</style>
+  
+  
 </head>
 
 <body>
