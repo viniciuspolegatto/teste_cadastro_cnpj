@@ -5,8 +5,22 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Contrato SEBRAETEC SENAI</title>
-  <script src="scriptImpressao.js" defer></script>
   <link rel="stylesheet" href="style.css" />
+  <style>
+    /* Estilo para a página e para o texto de contrato */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 1cm; /* Margens para impressão */
+    }
+
+    #textoContrato {
+      white-space: pre-wrap; /* Preserve quebras de linha */
+    }
+
+    button {
+      margin-top: 20px;
+    }
+  </style>
 </head>
 
 <body>
@@ -21,22 +35,24 @@
 
     // Verificar se os dados foram recuperados com sucesso
     if (dadosCnpj && cepDigitado) {
-      // Formatar as informações em texto discursivo
-    const textoFormatado = 
-      "CONTRATO DE PRESTAÇÃO DE SERVIÇOS DE CONSULTORIA TECNOLÓGICA - PROGRAMA SEBRAETEC 4.0\n\n" +
-      "- CNPJ: " + dadosCnpj.cnpj + "\n\n" +
-      "- Razão Social: " + dadosCnpj.nome + "\n" +
-      "- Atividade Principal: " + dadosCnpj.atividade_principal[0].text + "\n" +
-      "- CEP Digitado: " + cepDigitado + "\n\n" +
-      "// Adicione mais informações conforme necessário";
+      // Formatar as informações em texto discursivo com quebras de linha
 
-      // Exibir o texto formatado na página
-      const divTextoContrato = document.getElementById('textoContrato');
-      divTextoContrato.textContent = textoFormatado;
+      // Formatar as informações em texto discursivo com formatação HTML
+const textoFormatado = `
+<h2 style="text-align: center; font-weight: bold;">CONTRATO DE PRESTAÇÃO DE SERVIÇOS DE CONSULTORIA
+TECNOLÓGICA - PROGRAMA SEBRAETEC 4.0 </h2>
 
-      // Estilos para impressão
-      divTextoContrato.style.margin = '2cm';
-      divTextoContrato.style.pageBreakBefore = 'always'; // Quebra de página antes do texto para início em nova página
+<p>CNPJ: ${dadosCnpj.cnpj}</p>
+<p>Razão Social: ${dadosCnpj.nome}</p>
+<p>Atividade Principal: ${dadosCnpj.atividade_principal[0].text}</p>
+<p>CEP Digitado: ${cepDigitado}</p>
+`;
+
+// Exibir o texto formatado na página
+const divTextoContrato = document.getElementById('textoContrato');
+divTextoContrato.innerHTML = textoFormatado; // Usar innerHTML para interpretar o HTML
+
+
     } else {
       alert('Dados de CNPJ e/ou CEP não encontrados.');
     }
@@ -50,6 +66,3 @@
 </body>
 
 </html>
-
-
-
