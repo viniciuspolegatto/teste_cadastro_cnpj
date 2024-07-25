@@ -10,8 +10,8 @@
     /* Estilo geral para a página */
     body {
       font-family: Arial, sans-serif;
-      margin: 2cm; /* Margens para impressão */
-      padding-top: 250px; /* Espaço suficiente para o cabeçalho */
+      margin: 0cm; /* Margens para impressão */
+      padding-top: 100px; /* Espaço suficiente para o cabeçalho */
     }
 
     #textoContrato {
@@ -39,7 +39,7 @@
     @media print {
       @page {
         size: A4;
-        margin: 1cm; /* Margens para impressão */
+        margin: 2cm; /* Margens para impressão */
       }
 
       /* Adicionar a imagem ao cabeçalho de cada página */
@@ -56,8 +56,18 @@
       }
 
       .print-header img {
-        width: 200px;
-        height: 200px;
+        width: 100px;
+        height: 100px;
+      }
+
+      /* Ajustar o início do conteúdo para evitar sobreposição com o cabeçalho */
+      body {
+        padding-top: 0; /* Remover o padding superior para a impressão */
+      }
+
+      /* Adicionar uma área de segurança abaixo do cabeçalho */
+      .content {
+        margin-top: 250px; /* Espaço suficiente abaixo do cabeçalho */
       }
 
       /* Ajuste a margem dos parágrafos para impressão */
@@ -70,6 +80,11 @@
       h2 {
         margin-bottom: 10px;
       }
+
+      /* Garantir que a imagem do cabeçalho não sobreponha o conteúdo */
+      .print-header + .content {
+        margin-top: 250px; /* Garantir que o conteúdo comece abaixo do cabeçalho */
+      }
     }
   </style>
 </head>
@@ -79,9 +94,12 @@
     <img src="https://toppng.com/uploads/preview/sebrae-sp-vector-logo-download-free-1157404241143dsibcwuh.png" alt="Logo SEBRAETEC">
   </div>
 
- 
-  <div id="textoContrato"></div>
-  <button onclick="voltarParaIndex()">Voltar para Index</button>
+  <div class="content">
+   
+    
+    <div id="textoContrato"></div>
+    <button onclick="voltarParaIndex()">Voltar para Início</button>
+  </div>
 
   <script>
     // Recuperar os dados armazenados no localStorage
@@ -89,6 +107,7 @@
     const cepDigitado = localStorage.getItem('cepDigitado');
 
     // Verificar se os dados foram recuperados com sucesso
+
       if (dadosCnpj && cepDigitado) {
       
 
@@ -102,7 +121,19 @@
       
       const texto4senai = `<h4 style="text-align: justify; font-weight: bold;">2. Contratada - SEBRAE-SP</h4>`
       const texto5senai = `<p style="text-align: justify;">Serviço de Apoio às Micro e Pequenas Empresas do Estado de São Paulo - SEBRAE- SP, por sua Unidade Desenvolvimento Setorial e Territorial, CNPJ nº 43.728.245/0001-42, com endereço na Rua Vergueiro, nº 1117, 12º andar, Paraíso, São Paulo - SP, CEP: 01.504-001, Telefone: 11 – 3177 4741, doravante denominado como CONTRATADA</p>`
-      const textoFormatado = texto1senai+texto2senai+texto3senai+texto4senai+texto5senai+`
+     
+      const texto6senai = `<h3 style="text-align: center; font-weight: bold;">CONTRATO DE PRESTAÇÃO DE SERVIÇOS DE CONSULTORIA TECNOLÓGICA - PROGRAMA SEBRAETEC 4.0 </h3>
+      <p style="text-align: justify;">As partes abaixo qualificadas, por seus representantes legais, assinam o presente contrato de prestação de serviços de consultoria tecnológica individual, pertencentes ao Programa SEBRAETEC 4.0.</p>
+      <h4 style="text-align: justify; font-weight: bold;">I - PARTES</h4>`;
+      const texto7senai = `<h4 style="text-align: justify; font-weight: bold;">1. Contratante - EMPRESA</h4>`
+      
+      const texto8senai = `<p style="text-align: justify;">${dadosCnpj.nome}, inscrita no CNPJ nº ${dadosCnpj.cnpj}, localizada na ${dadosCnpj.logradouro}, ${dadosCnpj.numero}, bairro ${dadosCnpj.bairro}, no município de ${dadosCnpj.municipio} - SP, CEP: ${dadosCnpj.cep}, telefone(s) ${dadosCnpj.telefone}, e-mail ${dadosCnpj.email}, empresa neste ato representada por .... Cep Pessoal digitado: ${cepDigitado}, logradouro ${cepDigitado.logradouro} </P>`
+      
+      const texto9senai = `<h4 style="text-align: justify; font-weight: bold;">2. Contratada - SEBRAE-SP</h4>`
+      const texto10senai = `<p style="text-align: justify;">Serviço de Apoio às Micro e Pequenas Empresas do Estado de São Paulo - SEBRAE- SP, por sua Unidade Desenvolvimento Setorial e Territorial, CNPJ nº 43.728.245/0001-42, com endereço na Rua Vergueiro, nº 1117, 12º andar, Paraíso, São Paulo - SP, CEP: 01.504-001, Telefone: 11 – 3177 4741, doravante denominado como CONTRATADA</p>`
+
+      
+      const textoFormatado = texto1senai+texto2senai+texto3senai+texto4senai+texto5senai+texto6senai+texto7senai+texto8senai+texto9senai+texto10senai+`
 
 
 CNPJ: ${dadosCnpj.cnpj}
@@ -113,9 +144,7 @@ Atividade Principal: ${dadosCnpj.atividade_principal[0].text}</p>
 // Exibir o texto formatado na página
 const divTextoContrato = document.getElementById('textoContrato');
 divTextoContrato.innerHTML = textoFormatado; // Usar innerHTML para interpretar o HTML
-      
-      
-      
+    
 
     } else {
       alert('Dados de CNPJ e/ou CEP não encontrados.');
@@ -130,3 +159,17 @@ divTextoContrato.innerHTML = textoFormatado; // Usar innerHTML para interpretar 
 </body>
 
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
