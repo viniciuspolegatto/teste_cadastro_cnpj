@@ -22,8 +22,9 @@
     // Verificar se os dados foram recuperados com sucesso
     if (dadosCnpj && cepDigitado) {
       // Formatar as informações em texto discursivo
-      const textoFormatado = `
-        Informações do Contrato SEBRAETEC SENAI:
+      const textoFormatado =
+            <div`CONTRATO DE PRESTAÇÃO DE SERVIÇOS DE CONSULTORIA TECNOLÓGICA - PROGRAMA SEBRAETEC 4.0 `+<br>+
+            `      
         - CNPJ: ${dadosCnpj.cnpj}
         - Razão Social: ${dadosCnpj.nome}
         - Atividade Principal: ${dadosCnpj.atividade_principal[0].text}

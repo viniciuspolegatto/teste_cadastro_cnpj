@@ -1,3 +1,5 @@
+/*
+
 // Recuperar os dados armazenados na sessionStorage
 const dadosCnpj = JSON.parse(sessionStorage.getItem('dadosCnpj'));
 const cepDigitado = sessionStorage.getItem('cepDigitado');
@@ -29,7 +31,7 @@ if (dadosCnpj && cepDigitado) {
 }
 
 
-/*
+
 // Recuperar os dados armazenados no localStorage
 const dadosCnpj = JSON.parse(localStorage.getItem('dadosCnpj'));
 const cepDigitado = localStorage.getItem('cepDigitado');
