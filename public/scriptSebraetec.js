@@ -7,6 +7,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const telefone = localStorage.getItem("telefone");
   const emailpessoal = localStorage.getItem("email");
   const cpf = localStorage.getItem("cpf");
+  const servicos = localStorage.getItem("servico");
 
   if (!dadosCnpj || !cepDigitado) {
     alert(
@@ -28,13 +29,15 @@ document.addEventListener("DOMContentLoaded", function () {
     </p>
   `;
 
-  const reportDivCep = document.getElementById("reportCep");
-  reportDivCep.innerHTML = `
+  const reportProduto = document.getElementById("reportProduto");
+  reportProduto.innerHTML = `
     <p style="text-align: justify;">
-      ${cepDigitado.logradouro}, ${cepDigitado.bairro}, ${cepDigitado.localidade} - ${cepDigitado.uf}
+      ${servicos}
     </p>
   `;
 
+  
+  
   document.getElementById("voltar").addEventListener("click", function () {
     window.location.href = "/index.html";
   });
