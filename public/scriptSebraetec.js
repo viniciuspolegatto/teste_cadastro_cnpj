@@ -32,7 +32,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const reportProduto = document.getElementById("reportProduto");
   reportProduto.innerHTML = `
     <p style="text-align: justify;">
-      ${servicos}
+    Produto específico da prestação dos serviços: ${servicos}
     </p>
   `;
 
