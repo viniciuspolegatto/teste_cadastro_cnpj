@@ -21,8 +21,10 @@ document.addEventListener("DOMContentLoaded", function () {
     <p style="text-align: justify;">
       ${dadosCnpj.nome}, inscrita no CNPJ nº ${dadosCnpj.cnpj}, localizada na ${dadosCnpj.logradouro}, ${dadosCnpj.numero},
       bairro ${dadosCnpj.bairro}, no município de ${dadosCnpj.municipio} - SP, CEP: ${dadosCnpj.cep}, telefone(s) ${dadosCnpj.telefone},
-      e-mail ${dadosCnpj.email}, empresa neste ato representada por ${nomeCliente}, brasileiro(a), com inscrição no CPF nº ${cpf},
-      residente .... Cep Pessoal digitado: ${cepDigitado.cep}, logradouro ${cepDigitado.logradouro}, ${cepDigitado.bairro}, ${cepDigitado.localidade} - ${cepDigitado.uf}
+      e-mail ${dadosCnpj.email}, empresa neste ato representada por ${nomeCliente}, brasileiro(a), Empresário(a)/Autônomo(a) com 
+      inscrição no CPF nº ${cpf}, residente à ${cepDigitado.logradouro}, nº ${numeroResidencia}, bairro ${cepDigitado.bairro},
+      CEP ${cepDigitado.cep}, na comarca de ${cepDigitado.localidade} - ${cepDigitado.uf}, telefone de contato ${telefone} e e-mail
+      pessoal ${emailpessoal}, denominado(a) como CONTRATANTE
     </p>
   `;
 
