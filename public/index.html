@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Pesquisa de CNPJ para Contrato</title>
-  <script src="scriptIndex.js" defer></script>
+  <script src="scriptImpressao.js" defer></script>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -13,37 +13,51 @@
       <a href="/sebraetecSENAI.html">Gerar SEBRAETEC SENAI</a>
     </nav>
   </header>
-  
+
   <h1>Dados para Contrato</h1>
-  <label for="nomeCliente">Nome do Cliente:</label>
-  <input type="text" id="nomeCliente" placeholder="Digite o Nome do Cliente" />
+  
+  <form id="form-dados">
+    <ul>
+      <li>
+        <label for="cnpj">CNPJ:</label>
+        <input type="text" id="cnpj" placeholder="Digite o CNPJ" />
+      </li>
+      <li>
+        <label for="cep">CEP:</label>
+        <input type="text" id="cep" placeholder="Digite o CEP" />
+      </li>
+      <li>
+        <label for="nome-cliente">Nome do Cliente:</label>
+        <input type="text" id="nome-cliente" placeholder="Digite o nome do cliente" />
+      </li>
+      <li>
+        <label for="cpf">CPF:</label>
+        <input type="text" id="cpf" placeholder="Digite o CPF" />
+      </li>
+      <li>
+        <label for="numero-residencia">Número da Residência:</label>
+        <input type="text" id="numero-residencia" placeholder="Digite o número da residência" />
+      </li>
+      <li>
+        <label for="telefone">Telefone de Contato:</label>
+        <input type="text" id="telefone" placeholder="Digite o telefone de contato" />
+      </li>
+      <li>
+        <label for="email">E-mail pessoal:</label>
+        <input type="email" id="email" placeholder="Digite o e-mail pessoal" />
+      </li>
+      <li>
+        <label for="servicos">Escolha um serviço:</label>
+        <select id="servicos">
+          <option value="servico1">Serviço 1 = Sebratec Desenvolvimento de WebSite</option>
+          <option value="servico2">Serviço 2 = Sebraetec Loja Virtual</option>
+          <option value="servico3">Serviço 3 = Sebraetec ISO 9001</option>
+        </select>
+      </li>
+    </ul>
 
-  <label for="cpf">CPF:</label>
-  <input type="text" id="cpf" placeholder="Digite o CPF" />
-
-  <label for="numeroResidencia">Número da Residência:</label>
-  <input type="text" id="numeroResidencia" placeholder="Digite o Número da Residência" />
-
-  <label for="telefone">Telefone de Contato:</label>
-  <input type="text" id="telefone" placeholder="Digite o Telefone de Contato" />
-
-  <label for="email">E-mail Pessoal:</label>
-  <input type="email" id="email" placeholder="Digite o E-mail Pessoal" />
-
-  <label for="servicos">Serviços:</label>
-  <select id="servicos">
-    <option value="Serviço 1">Sebraetec Desenvolvimento de WebSite</option>
-    <option value="Serviço 2">Sebraetec Loja Virtual</option>
-    <option value="Serviço 3">Sebraetec ISO 9001</option>
-  </select>
-
-  <label for="cnpj">CNPJ:</label>
-  <input type="text" id="cnpj" placeholder="Digite o CNPJ" />
-
-  <label for="cep">CEP:</label>
-  <input type="text" id="cep" placeholder="Digite o CEP" />
-
-  <button id="botaoImpressaoCnpj">Enviar</button>
+    <button type="button" id="botaoImpressaoCnpj">Enviar</button>
+  </form>
 
   <br><br>
 
@@ -67,23 +81,20 @@
         <td id="empresa-atividade-principal"></td>
       </tr>
       <tr>
-        <th>Logradouro </th>
+        <th>Logradouro</th>
         <td id="empresa-logradouro"></td>
       </tr>
       <tr>
-        <th>Município </th>
+        <th>Município</th>
         <td id="empresa-municipio"></td>
       </tr>
       <tr>
-        <th>Situação da Empresa </th>
+        <th>Situação da Empresa</th>
         <td id="empresa-situacao"></td>
       </tr>
       <tr>
         <th>Telefone</th>
         <td id="telefone-td"></td>
-      </tr>
-      <tr> 
-        <th>------- </th> 
       </tr>
       <tr>
         <th>CEP Pessoal</th>
@@ -92,30 +103,6 @@
       <tr>
         <th>Endereço Pessoal</th>
         <td id="endereco-td"></td>
-      </tr>
-      <tr>
-        <th>Nome do Cliente</th>
-        <td id="nome-cliente-td"></td>
-      </tr>
-      <tr>
-        <th>CPF</th>
-        <td id="cpf-td"></td>
-      </tr>
-      <tr>
-        <th>Número da Residência</th>
-        <td id="numero-residencia-td"></td>
-      </tr>
-      <tr>
-        <th>Telefone de Contato</th>
-        <td id="telefone-contato-td"></td>
-      </tr>
-      <tr>
-        <th>E-mail Pessoal</th>
-        <td id="email-td"></td>
-      </tr>
-      <tr>
-        <th>Serviço</th>
-        <td id="servico-td"></td>
       </tr>
     </tbody>
   </table>
