@@ -8,7 +8,27 @@ document.addEventListener("DOMContentLoaded", function () {
   const emailpessoal = localStorage.getItem("email");
   const cpf = localStorage.getItem("cpf");
   const servicos = localStorage.getItem("servico");
+  
+  // Função para obter o nome fantasia
+  function obterNomeFantasia() {
+    // Coleta o valor de dadosCnpj.fantasia
+    let nomeFantasia = dadosCnpj.fantasia;
+    
+    // Verifica se o nomeFantasia é vazio ou nulo e ajusta o valor
+    if (!nomeFantasia || nomeFantasia.trim() === "") {
+      nomeFantasia = ", nome fantasia não atribuído";
+    } else {
+      nomeFantasia = ", nome fantasia " + dadosCnpj.fantasia;
+    }
+    
+    return nomeFantasia;
+  }
 
+  // Obtém o nome fantasia
+  const nomeFantasia = obterNomeFantasia();
+
+   
+   
   if (!dadosCnpj || !cepDigitado) {
     alert(
       "Dados não encontrados. Por favor, volte e preencha os dados novamente."
@@ -20,7 +40,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const reportDiv = document.getElementById("report");
   reportDiv.innerHTML = `
     <p style="text-align: justify;">
-      ${dadosCnpj.nome}, inscrita no CNPJ nº ${dadosCnpj.cnpj}, localizada na ${dadosCnpj.logradouro}, ${dadosCnpj.numero},
+      ${dadosCnpj.nome}${nomeFantasia}, inscrita no CNPJ nº ${dadosCnpj.cnpj}, localizada na ${dadosCnpj.logradouro}, ${dadosCnpj.numero},
       bairro ${dadosCnpj.bairro}, no município de ${dadosCnpj.municipio} - SP, CEP: ${dadosCnpj.cep}, telefone(s) ${dadosCnpj.telefone},
       e-mail ${dadosCnpj.email}, empresa neste ato representada por ${nomeCliente}, brasileiro(a), Empresário(a)/Autônomo(a) com 
       inscrição no CPF nº ${cpf}, residente à ${cepDigitado.logradouro}, nº ${numeroResidencia}, bairro ${cepDigitado.bairro},
@@ -33,6 +53,15 @@ document.addEventListener("DOMContentLoaded", function () {
   reportProduto.innerHTML = `
     <p style="text-align: justify;">
     Produto específico da prestação dos serviços: ${servicos}
+    </p>
+  `;
+  
+  const clienteAssinante = document.getElementById("clienteAssinante");
+  clienteAssinante.innerHTML = `
+    <p style="text-align: justify;">
+    <b>CONTRATANTE / EMPRESA</b><br>
+    <b>${nomeCliente}<b><br>
+    <b>${cpf}<b>
     </p>
   `;
 
