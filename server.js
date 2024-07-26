@@ -4,7 +4,6 @@ const path = require('path');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// Configurando a pasta public para servir arquivos estáticos
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/cnpj/:cnpj', (req, res) => {
@@ -14,32 +13,22 @@ app.get('/cnpj/:cnpj', (req, res) => {
     hostname: 'receitaws.com.br',
     port: null,
     path: `/v1/cnpj/${cnpj}`,
-    headers: {
-      Accept: 'application/json'
-    }
+    headers: { Accept: 'application/json' }
   };
 
   const apiReq = https.request(options, (apiRes) => {
     const chunks = [];
-
-    apiRes.on('data', (chunk) => {
-      chunks.push(chunk);
-    });
-
+    apiRes.on('data', (chunk) => { chunks.push(chunk); });
     apiRes.on('end', () => {
       const body = Buffer.concat(chunks);
       res.json(JSON.parse(body.toString()));
     });
   });
 
-  apiReq.on('error', (e) => {
-    res.status(500).send(e.message);
-  });
-
+  apiReq.on('error', (e) => { res.status(500).send(e.message); });
   apiReq.end();
 });
 
-// Rota para servir o arquivo HTML principal
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });

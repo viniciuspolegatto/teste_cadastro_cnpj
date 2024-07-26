@@ -1,6 +1,12 @@
 document.getElementById('botaoImpressaoCnpj').addEventListener('click', async function() {
   const cepDigitado = document.getElementById('cep').value;
   const cnpjDigitado = document.getElementById('cnpj').value;
+  const nomeCliente = document.getElementById('nomeCliente').value;
+  const cpf = document.getElementById('cpf').value;
+  const numeroResidencia = document.getElementById('numeroResidencia').value;
+  const telefone = document.getElementById('telefone').value;
+  const email = document.getElementById('email').value;
+  const servico = document.getElementById('servicos').value;
 
   try {
     // Buscar dados do CEP na API ViaCEP
@@ -26,6 +32,12 @@ document.getElementById('botaoImpressaoCnpj').addEventListener('click', async fu
     document.getElementById('telefone-td').textContent = dataCnpj.telefone;
     document.getElementById('endereco-td').textContent = `${dataCep.logradouro}, ${dataCep.bairro}, ${dataCep.localidade} - ${dataCep.uf}`;
     document.getElementById('cep-td').textContent = cepDigitado;
+    document.getElementById('nome-cliente-td').textContent = nomeCliente;
+    document.getElementById('cpf-td').textContent = cpf;
+    document.getElementById('numero-residencia-td').textContent = numeroResidencia;
+    document.getElementById('telefone-contato-td').textContent = telefone;
+    document.getElementById('email-td').textContent = email;
+    document.getElementById('servico-td').textContent = servico;
 
     // Exibindo a tabela
     document.getElementById('data-table').style.display = 'block';
@@ -33,6 +45,12 @@ document.getElementById('botaoImpressaoCnpj').addEventListener('click', async fu
     // Armazenar os dados no localStorage
     localStorage.setItem('dadosCnpj', JSON.stringify(dataCnpj));
     localStorage.setItem('cepDigitado', cepDigitado);
+    localStorage.setItem('nomeCliente', nomeCliente);
+    localStorage.setItem('cpf', cpf);
+    localStorage.setItem('numeroResidencia', numeroResidencia);
+    localStorage.setItem('telefone', telefone);
+    localStorage.setItem('email', email);
+    localStorage.setItem('servico', servico);
 
   } catch (error) {
     console.error(error);
