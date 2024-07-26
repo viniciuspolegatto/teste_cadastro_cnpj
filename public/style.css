@@ -1,7 +1,12 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
 .header {
   background-color: #f2f2f2; /* Cor de fundo do cabeçalho */
   z-index: 10;
-  position: absolute;
+  position: fixed; /* Cabeçalho fixo */
   top: 0;
   right: 0;
   left: 0;
@@ -10,22 +15,11 @@
   box-sizing: border-box;
 }
 
-#header-logo {
-  width: 100px; /* Largura da imagem */
-  height: 100px; /* Altura da imagem */
-  object-fit: cover; /* Garante que a imagem seja recortada se necessário para preencher a caixa */
-  display: block; /* Necessário para aplicar a margem automática */
-  margin: 0 auto; /* Centraliza a imagem horizontalmente */
-}
-
 @media print {
   .header {
-    position: fixed; /* Cabeçalho fixo durante a impressão */
     width: 100%;
-    top: 0;
-    left: 0;
     padding: 10px; /* Ajuste o padding para a impressão */
-    text-align: center; /* Alinha a imagem ao centro */
+    text-align: center; /* Garante que o conteúdo (imagem) seja centralizado */
   }
 
   #header-logo {
