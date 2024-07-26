@@ -14,6 +14,14 @@ document.addEventListener('DOMContentLoaded', function() {
   <p style="text-align: justify;">${dadosCnpj.nome}, inscrita no CNPJ nº ${dadosCnpj.cnpj}, localizada na ${dadosCnpj.logradouro}, ${dadosCnpj.numero}, bairro ${dadosCnpj.bairro}, no município de ${dadosCnpj.municipio} - SP, CEP: ${dadosCnpj.cep}, telefone(s) ${dadosCnpj.telefone}, e-mail ${dadosCnpj.email}, empresa neste ato representada por .... Cep Pessoal digitado: ${cepDigitado}, logradouro ${cepDigitado.logradouro} </P>
   `;
   
+    const reportDivCep = document.getElementById('reportCep');
+  reportDivCep.innerHTML =
+  `
+  <p style="text-align: justify;">${cepDigitado.logradouro}, ${cepDigitado.bairro}, ${cepDigitado.localidade} - ${cepDigitado.uf} </P>
+  `;
+  
+      document.getElementById('endereco-td').textContent = ``;
+    document.getElementById('cep-td').textContent = cepDigitado;
 
   document.getElementById('voltar').addEventListener('click', function() {
     window.location.href = '/index.html';
