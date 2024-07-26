@@ -1,4 +1,19 @@
-                  <script>
+    <p><strong>CNPJ:</strong> ${dadosCnpj.cnpj}</p>
+    <p><strong>Razão Social:</strong> ${dadosCnpj.nome}</p>
+    <p><strong>Nome Fantasia:</strong> ${dadosCnpj.fantasia}</p>
+    <p><strong>Atividade Principal:</strong> ${dadosCnpj.atividade_principal[0].text}</p>
+    <p><strong>Logradouro:</strong> ${dadosCnpj.logradouro}</p>
+    <p><strong>Município:</strong> ${dadosCnpj.municipio}</p>
+    <p><strong>Situação da Empresa:</strong> ${dadosCnpj.situacao}</p>
+    <p><strong>Telefone:</strong> ${dadosCnpj.telefone}</p>
+      
+      
+      
+
+
+
+
+                    <script>
                     // Recuperar os dados armazenados no localStorage
                     const dadosCnpj = JSON.parse(
                       localStorage.getItem("dadosCnpj")
