@@ -16,9 +16,9 @@ body {
 }
 
 #header-logo {
-  width: 200px; /* Largura da imagem */
-  height: 200px; /* Altura da imagem */
-  object-fit: cover; /* Garante que a imagem seja recortada se necessário para preencher a caixa */
+  width: 50px; /* Largura da imagem */
+  height: 50px; /* Altura da imagem */
+  margin: 0 auto; /*centraliza a imagem*/
 }
 
 @media print {
