@@ -9,10 +9,10 @@
                     if (dadosCnpj && cepDigitado) {
                       
                       // Formatar as informações em texto discursivo com formatação HTML
-                      const texto1senai = `<h3 style="text-align: center; font-weight: bold;">CONTRATO DE PRESTAÇÃO DE SERVIÇOS DE CONSULTORIA TECNOLÓGICA - PROGRAMA SEBRAETEC 4.0 </h3>
+                     <h3 style="text-align: center; font-weight: bold;">CONTRATO DE PRESTAÇÃO DE SERVIÇOS DE CONSULTORIA TECNOLÓGICA - PROGRAMA SEBRAETEC 4.0 </h3>
       <p style="text-align: justify;">As partes abaixo qualificadas, por seus representantes legais, assinam o presente contrato de prestação de serviços de consultoria tecnológica individual, pertencentes ao Programa SEBRAETEC 4.0.</p>
       <h4 style="text-align: justify; font-weight: bold;">I - PARTES</h4>`;
-                      const texto2senai = `<h4 style="text-align: justify; font-weight: bold;">1. Contratante - EMPRESA</h4>`;
+                      
 
                       const texto3senai = `<p style="text-align: justify;">${dadosCnpj.nome}, inscrita no CNPJ nº ${dadosCnpj.cnpj}, localizada na ${dadosCnpj.logradouro}, ${dadosCnpj.numero}, bairro ${dadosCnpj.bairro}, no município de ${dadosCnpj.municipio} - SP, CEP: ${dadosCnpj.cep}, telefone(s) ${dadosCnpj.telefone}, e-mail ${dadosCnpj.email}, empresa neste ato representada por .... Cep Pessoal digitado: ${cepDigitado}, logradouro ${cepDigitado.logradouro} </P>`;
 
