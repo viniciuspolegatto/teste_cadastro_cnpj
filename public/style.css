@@ -1,8 +1,3 @@
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-}
-
 .header {
   background-color: #f2f2f2; /* Cor de fundo do cabeçalho */
   z-index: 10;
@@ -16,9 +11,11 @@ body {
 }
 
 #header-logo {
-  width: 50px; /* Largura da imagem */
-  height: 50px; /* Altura da imagem */
-  margin: 0 auto; /*centraliza a imagem*/
+  width: 100px; /* Largura da imagem */
+  height: 100px; /* Altura da imagem */
+  object-fit: cover; /* Garante que a imagem seja recortada se necessário para preencher a caixa */
+  display: block; /* Necessário para aplicar a margem automática */
+  margin: 0 auto; /* Centraliza a imagem horizontalmente */
 }
 
 @media print {
@@ -28,6 +25,13 @@ body {
     top: 0;
     left: 0;
     padding: 10px; /* Ajuste o padding para a impressão */
+    text-align: center; /* Alinha a imagem ao centro */
+  }
+
+  #header-logo {
+    width: 100px; /* Mantém o tamanho da imagem na impressão */
+    height: 100px;
+    margin: 0 auto; /* Centraliza a imagem horizontalmente durante a impressão */
   }
 
   .div-pusher {
