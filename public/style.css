@@ -15,6 +15,12 @@ body {
   box-sizing: border-box;
 }
 
+#header-logo {
+  width: 200px; /* Largura da imagem */
+  height: 200px; /* Altura da imagem */
+  object-fit: cover; /* Garante que a imagem seja recortada se necessário para preencher a caixa */
+}
+
 @media print {
   .header {
     position: fixed; /* Cabeçalho fixo durante a impressão */

@@ -14,10 +14,6 @@ document.addEventListener('DOMContentLoaded', function() {
   `;
   
 
-    <p><strong>CEP Pessoal:</strong> ${cepDigitado}</p>
-    <p><strong>Endereço Pessoal:</strong> ${dadosCnpj.logradouro}, ${dadosCnpj.bairro}, ${dadosCnpj.localidade} - ${dadosCnpj.uf}</p>
-  `;
-
   document.getElementById('voltar').addEventListener('click', function() {
     window.location.href = '/index.html';
   });
