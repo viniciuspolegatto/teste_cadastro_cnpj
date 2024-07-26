@@ -9,7 +9,6 @@ document.getElementById('botaoImpressaoCnpj').addEventListener('click', async fu
   const servico = document.getElementById('servicos').value;
 
   try {
-    // Buscar dados do CEP na API ViaCEP
     let resCep = await fetch(`https://viacep.com.br/ws/${cepDigitado}/json/`);
     let dataCep = await resCep.json();
 
@@ -17,11 +16,10 @@ document.getElementById('botaoImpressaoCnpj').addEventListener('click', async fu
       throw new Error("CEP não encontrado");
     }
 
-    // Buscar dados do CNPJ na API local
     let resCnpj = await fetch(`/cnpj/${cnpjDigitado}`);
     let dataCnpj = await resCnpj.json();
 
-    // Preenchendo as células da tabela com os valores
+    // Preenchendo a tabela
     document.getElementById('cnpj-td').textContent = cnpjDigitado;
     document.getElementById('razao-social-td').textContent = dataCnpj.nome;
     document.getElementById('empresa-atividade-principal').textContent = dataCnpj.atividade_principal[0].text;
@@ -39,12 +37,11 @@ document.getElementById('botaoImpressaoCnpj').addEventListener('click', async fu
     document.getElementById('email-td').textContent = email;
     document.getElementById('servico-td').textContent = servico;
 
-    // Exibindo a tabela
     document.getElementById('data-table').style.display = 'block';
 
     // Armazenar os dados no localStorage
     localStorage.setItem('dadosCnpj', JSON.stringify(dataCnpj));
-    localStorage.setItem('cepDigitado', cepDigitado);
+    localStorage.setItem('cepDigitado', JSON.stringify(dataCep)); // Armazenar dados do CEP como JSON
     localStorage.setItem('nomeCliente', nomeCliente);
     localStorage.setItem('cpf', cpf);
     localStorage.setItem('numeroResidencia', numeroResidencia);
