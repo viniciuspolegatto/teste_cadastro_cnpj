@@ -1,40 +1,186 @@
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contrato SEBRAETEC SENAI</title>
+  <link rel="stylesheet" href="style.css" />
+ 
+  <style>
+    /* Estilo geral para a página */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0; /* Remove margens padrão */
+      padding: 0; /* Remove padding padrão */
+    }
+
+      
+      .header {
+        background-color: $header-bg-color;
+        z-index: $zindex-header;
+        position: absolute;
+        top: 0;
+        right: 0;
+        left: 0;
+        
+      @media print {
+        position: fixed;
+        }
+        
+        .div-pusher {
+          @media print {
+            height: 77px;
+          }
+        }
+        
+        .printer table {
+          width: 100%;
+        }       
+      }
+    
+  </style>
+</head>
+
+<body>
+  
+  render() {
+return(
+<div>
+  <table className="printer-table">
+    <thead>
+      <Header />
+      <tr>
+      <td>
+        <div className="div-pusher">
+        </div>
+        </td>
+      </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+      <Menu />
+      <main className="main">
+        <div className="container">
+          <Report/>
+        </div>
+        </main>
+      </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+);
+}
+  
+  </body>
+
+
+
+
+
+
+
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contrato SEBRAETEC AGRO</title>
-  <script src="scriptImpressao.js" defer></script>
+  <title>Contrato SEBRAETEC SENAI</title>
   <link rel="stylesheet" href="style.css" />
+  <style>
+    /* Estilo geral para a página */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0; /* Remove margens padrão */
+      padding: 0; /* Remove padding padrão */
+    }
+
+    #textoContrato {
+      white-space: pre-wrap; /* Preserve quebras de linha */
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    h2 {
+      text-align: center; /* Centralizar o texto do título */
+      font-weight: bold; /* Deixar o texto em negrito */
+    }
+
+    p {
+      margin: 0; /* Remove margens padrão dos parágrafos */
+      padding: 0; /* Remove padding para não adicionar espaço extra */
+    }
+
+    button {
+      margin-top: 20px;
+    }
+
+    @media print {
+      @page {
+        size: A4;
+        margin: 2cm; /* Margens para impressão */
+      }
+
+      /* Adicionar a imagem ao cabeçalho de cada página */
+      .print-header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100px; /* Altura do cabeçalho */
+        text-align: center;
+        padding-bottom: 20px; /* Espaço abaixo do cabeçalho */
+        border-bottom: 1px solid #000;
+        background-color: #fff; /* Fundo branco para evitar sobreposição com o conteúdo */
+        z-index: 1000; /* Garantir que o cabeçalho fique acima do conteúdo */
+      }
+
+      .print-header img {
+        width: 100px;
+        height: 100px;
+        margin-top: 10px; /* Ajuste de margem superior */
+      }
+
+      /* Adicionar uma área de segurança para o cabeçalho */
+      body {
+        margin-top: 250px; /* Garantir que o conteúdo não comece imediatamente abaixo do cabeçalho */
+      }
+
+      /* Garantir que o conteúdo comece após o cabeçalho */
+      .content {
+        position: relative;
+      }
+
+      /* Ajustar a margem inferior para o título na impressão */
+      h2 {
+        margin-bottom: 10px;
+      }
+    }
+  </style>
 </head>
 
-  <body>
-    <h1>Formatador de Texto</h1>
-    <form>
-        <textarea id="texto" rows="10" cols="50"></textarea>
-        <button type="button" onclick="formatarTexto()">Formatar</button>
-    </form>
-    <div id="resultado"></div>
+<body>
+  <div class="print-header">
+    <img src="https://toppng.com/uploads/preview/sebrae-sp-vector-logo-download-free-1157404241143dsibcwuh.png" alt="Logo SEBRAETEC">
+  </div>
 
-    <script>
-        function formatarTexto() {
-            var texto = document.getElementById("texto").value;
-            var resultado = document.getElementById("resultado");
-            resultado.innerHTML = texto.replace(/\n/g,   
- '<p></p>');
+  <div class="content">
+    
+    <div id="textoContrato"></div>
+    <button onclick="voltarParaIndex()">Voltar para Index</button>
+  </div>
 
-            // Adicionando quebra de página a cada 50 linhas (ajuste conforme necessário)
-            var linhas = texto.split('\n');
-            var contadorLinhas = 0;
-            for (var i = 0; i < linhas.length; i++) {
-                contadorLinhas++;
-                if (contadorLinhas % 50 === 0) {
-                    resultado.innerHTML += '<div class="page-break"></div>';
-                    contadorLinhas = 0;
-                }
-            }
-        }
-    </script>
+  
+
 </body>
+
 </html>
