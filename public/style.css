@@ -1,6 +1,13 @@
 .idbody {
   margin: 20px;
   font-family: Arial, sans-serif;
+  top: 20px;
+}
+
+.idfooter {
+    background-color: #f3f3f3;
+    text-align: center;
+    padding: 20px;
 }
 
 
